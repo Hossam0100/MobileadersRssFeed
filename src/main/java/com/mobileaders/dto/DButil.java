@@ -1,5 +1,5 @@
 
-package com.mobileaders.utils;
+package com.mobileaders.dto;
 
 
 import java.sql.Connection;

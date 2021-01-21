@@ -1,4 +1,4 @@
-package com.mobileaders.utils;
+package com.mobileaders.dto;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,11 +9,11 @@ import java.util.ArrayList;
 
 import org.apache.log4j.Logger;
 
+import com.mobileaders.dto.DButil;
 import com.mobileaders.model.Feed;
 import com.mobileaders.model.FeedMessage;
 import com.mobileaders.model.Sources;
 import com.mobileaders.rssread.RSSFeedParser;
-import com.mobileaders.utils.DButil;
 
 public class DataBaseValidation {
 	static Statement st;

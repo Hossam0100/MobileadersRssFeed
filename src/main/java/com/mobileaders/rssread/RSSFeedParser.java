@@ -11,9 +11,9 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.events.Characters;
 import javax.xml.stream.events.XMLEvent;
 
+import com.mobileaders.dto.DataBaseValidation;
 import com.mobileaders.model.Feed;
 import com.mobileaders.model.FeedMessage;
-import com.mobileaders.utils.DataBaseValidation;
 
 public class RSSFeedParser {
 	static final String TITLE = "title";

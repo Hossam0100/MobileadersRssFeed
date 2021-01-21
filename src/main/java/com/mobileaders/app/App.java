@@ -1,8 +1,8 @@
 package com.mobileaders.app;
 
  
+import com.mobileaders.dto.DataBaseValidation;
 import com.mobileaders.model.Sources;
-import com.mobileaders.utils.DataBaseValidation;
 
 /**
  * Hello world!
