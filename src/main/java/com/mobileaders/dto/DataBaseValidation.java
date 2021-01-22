@@ -23,7 +23,7 @@ public class DataBaseValidation {
 	public static ArrayList<Sources> listOfSources() {
 		st = DButil.getStatement();
 		sourcesList = new ArrayList<>();
-		String sql = "SELECT `sourceUrl`,`parenttag`  FROM `sources`";
+		String sql = "SELECT `sourceUrl`,`parenttag`  FROM `Sources`";
 		try {
 			ResultSet rs = st.executeQuery(sql);
 			while (rs.next()) {
@@ -47,7 +47,7 @@ public class DataBaseValidation {
 		Feed feed = parser.readFeed();
  
 
-		String sql = "SELECT `news_title`  FROM `newspaper` where `news_title` = '" + feed.getTitle() + "'";
+		String sql = "SELECT `news_title`  FROM `Newspaper` where `news_title` = '" + feed.getTitle() + "'";
 
 		try {
 			st = DButil.getStatement();
@@ -71,7 +71,7 @@ public class DataBaseValidation {
 
 	public static void saveNewsPaper(Sources s) {
 
-		String sQL = "INSERT  INTO `newspaper`(`date_posted`,`news_title`,`news_conclosion`,`news_link` ) VALUES (  ? ,?, ?,?)";
+		String sQL = "INSERT  INTO `Newspaper`(`date_posted`,`news_title`,`news_conclosion`,`news_link` ) VALUES (  ? ,?, ?,?)";
 
 		PreparedStatement ps = null;
 		Connection dbConn = null;
@@ -108,7 +108,7 @@ public class DataBaseValidation {
 	}
 	public static void saveTages(String tag) {
 
-		String sQL = "INSERT  INTO `tag`(`tagName`,`parnet_tag_id`,`flag` ) VALUES (?, ? ,? )";
+		String sQL = "INSERT  INTO `Tags`(`tagName`,`parnet_tag_id`,`flag` ) VALUES (?, ? ,? )";
 
 		PreparedStatement ps = null;
 		Connection dbConn = null;
@@ -140,7 +140,7 @@ public class DataBaseValidation {
 	}
 	public static void saveRelationalTages(String url ,String tag) {
 
-		String sQL = "INSERT  INTO `newspapertotags`(`paperID`,`tagID`  ) VALUES (?, ?  )";
+		String sQL = "INSERT  INTO `Newspapertotags`(`paperID`,`tagID`  ) VALUES (?, ?  )";
 
 		PreparedStatement ps = null;
 		Connection dbConn = null;
@@ -175,7 +175,7 @@ public class DataBaseValidation {
 		int x = 0;
 	 
 
-		String sql = "SELECT `tag_Id` FROM `tag` where `tagName` = '" + tag + "'";
+		String sql = "SELECT `tag_Id` FROM `Tags` where `tagName` = '" + tag + "'";
 
 		try {
 			st = DButil.getStatement();
@@ -201,7 +201,7 @@ public class DataBaseValidation {
 		RSSFeedParser parser = new RSSFeedParser(url);
 		Feed feed = parser.readFeed();
 
-		String sql = "SELECT `news_id` FROM `newspaper` where `news_title` = '" + feed.getTitle() + "'";
+		String sql = "SELECT `news_id` FROM `Newspaper` where `news_title` = '" + feed.getTitle() + "'";
 
 		try {
 			st = DButil.getStatement();
@@ -224,7 +224,7 @@ public class DataBaseValidation {
 
 	public static void saveArtical(String url) {
 
-		String sQL = "INSERT  INTO `article`(`title`,`conclusion`,`media`,`link`,`author`,`guid`,`pubdate`,`newspaper_id`) VALUES (?, ? ,?, ?,?,?,?,?)";
+		String sQL = "INSERT  INTO `Article`(`title`,`conclusion`,`media`,`link`,`author`,`guid`,`pubdate`,`newspaper_id`) VALUES (?, ? ,?, ?,?,?,?,?)";
 
 		PreparedStatement ps = null;
 		Connection dbConn = null;
